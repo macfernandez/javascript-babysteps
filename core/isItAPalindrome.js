@@ -1,5 +1,12 @@
-//const sent="Was it a car or a cat I saw"
-const sent="Hey how are you"
+// 👋 Welcome to the JavaScript coding playground.
+// Create a function that tests if a string is a pallindrome.
+
+// If you can't think of any strings, try these out:
+
+let palindrome = "Was it a car or a cat I saw"
+let nonPalindrome = "Hey how are you"
+
+// Type your code here:
 
 function range(size, startAt = 0) {
     return [...Array(size).keys()].map(i => i + startAt);
@@ -18,8 +25,7 @@ function isPalyndrom(text){
             sameChar.push(false)
         }
     }
-    let palindrome = sameChar.every(c => c === true);
-    return palindrome
-}
+    let palyndrom = sameChar.every(c => c === true);
+    return palyndrom}
 
-console.log(isPalyndrom(sent))
+console.log(isPalyndrom(palindrome))
