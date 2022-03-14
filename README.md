@@ -7,9 +7,6 @@ Solutions to javascript exercises from Enki's tutorial.
 {% assign doclist = site.pages | sort: 'url'  %}
 {% for doc in doclist %}
     {% if doc.name contains '.md' or doc.name contains '.html' %}
-        <script>
-            console.log("{{ site.pages }}")
-            console.log("{{ doc.url }} || {{ doc.name }}")
-        </script>
+        <li><a href="{{ site.baseurl }}{{ doc.url }}">{{ doc.url }}</a></li>
     {% endif %}
 {% endfor %}
