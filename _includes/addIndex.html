@@ -3,7 +3,6 @@
 
 <script>
     function createLi(list, element){
-        console.log(element)
         const elementLi = document.createElement('li')
             
         const textA = document.createElement('a')
@@ -16,8 +15,7 @@
     const listUl = document.createElement('ul')
     {% for doc in doclist %}
         {% if doc.name contains '.md' or doc.name contains '.html' %}
-            console.log("{{ doc.url }}")
-            createLi(listUl, doc.url)
+            createLi(listUl, "{{ doc.url }}"")
         {% endif %}
     {% endfor %}
     const section = document.querySelector('section')
