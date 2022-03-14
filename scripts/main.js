@@ -1,5 +1,3 @@
-//console.log('entré')
-
 const section = document.querySelector('section')
 var nav = document.createElement('nav')
 section.parentNode.insertBefore(nav, section)

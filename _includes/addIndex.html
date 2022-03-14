@@ -1,5 +1,61 @@
-{% assign doclist = site.pages | sort: 'url'  %}
+<link href="{{ site.baseurl }}}/assets/style.css" rel="stylesheet">
 
+<script>
+    // get section
+    const sectionPage = document.querySelector('section')
+    
+    // create nav section
+    var navThisPage = document.createElement('nav')
+    sectionPage.insertAdjacentElement('beforebegin', navThisPage)
+    
+    // create list for "this-page"
+    var ulThisPage = document.createElement('ul')
+    ulThisPage.textContent = "En esta página"
+    ulThisPage.className = "this-page"
+    navThisPage.appendChild(ulThisPage)
+
+    // select every h1 and h2 element
+    const headlines = document.querySelectorAll('h1,h2')
+
+    // add headlines to "this-page" ul
+    function addToNav(head){
+        // set id for healine
+        const headText = head.textContent               //ex: "First Title"
+        const headId = headText.replace(' ','-')        //ex: "First-Title"
+        const headTag = head.tagName.toLowerCase()      //ex: "H1">"h1"
+        head.id = headId                                // id="First-Title" (for ref)
+
+        const aHeadlineHref = document.createElement('a')
+        aHeadlineHref.textContent = headText
+        aHeadlineHref.href = "#"+headId
+        aHeadlineHref.onclick = "location.href='{{% aHeadlineHref.href %}}'"
+
+        const liItem = document.createElement('li')
+        liItem.className = "tag-"+headTag
+        liItem.appendChild(aHeadlineHref)
+
+        if (tag=="h1"){
+            aHeadlineHref.appendChild(liItem)
+        }
+        else if (tag=="h2"){
+            if (aHeadlineHref.lastChild.lastChild.tagName.toLowerCase() == 'ul'){
+                aHeadlineHref.lastChild.lastChild.appendChild(navItem)
+            }
+            else {
+                const navSubHeadList = document.createElement('ul')
+                navSubHeadList.appendChild(navItem)
+                aHeadlineHref.lastChild.appendChild(navSubHeadList)
+            }
+        }
+    }
+
+    for (head in headlines){
+        addToNav(head)
+    }
+</script>
+
+
+{% assign doclist = site.pages | sort: 'url'  %}
 
 <script>
     function createLi(list, element){
@@ -15,7 +71,7 @@
     const listUl = document.createElement('ul')
     {% for doc in doclist %}
         {% if doc.name contains '.md' or doc.name contains '.html' %}
-            createLi(listUl, "{{ doc.url }}"")
+            createLi(listUl, "{{ doc.url }}")
         {% endif %}
     {% endfor %}
     const section = document.querySelector('section')
