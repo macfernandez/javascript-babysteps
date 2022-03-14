@@ -16,7 +16,7 @@
     navThisPage.appendChild(ulThisPage)
 
     // add headlines to "this-page" ul
-    function addToNav(head){
+    function addToThisPageList(head){
         // set id for healine
         const headText = head.textContent;              //ex: "First Title"
         const headId = headText.replace(' ','-');       //ex: "First-Title"
@@ -48,14 +48,16 @@
     }
 
     headlines = document.querySelectorAll('h1,h2')
-    headline.forEach(element => addToNav(element    ));
-</script>
+    headlines.forEach(element => addToThisPageList(element));
 
+    //create list for "this-repo"
+    var ulThisRepo = document.createElement('ul')
+    ulThisRepo.textContent = "En el repositorio"
+    ulThisRepo.className = "this-repo"
+    navThisPage.appendChild(ulThisRepo)
 
-{% assign doclist = site.pages | sort: 'url'  %}
-
-<script>
-    function createLi(list, element){
+    //add element to list
+    function addToRepoList(list, element){
         const elementLi = document.createElement('li')
             
         const textA = document.createElement('a')
@@ -65,10 +67,12 @@
             
         listUl.appendChild(elementLi)
     }
-    const listUl = document.createElement('ul')
+
+    //get all site-pages and add them to list
+    {% assign doclist = site.pages | sort: 'url'  %}
     {% for doc in doclist %}
         {% if doc.name contains '.md' or doc.name contains '.html' %}
-            createLi(listUl, "{{ doc.url }}")
+            addToRepoList(listUl, "{{ doc.url }}")
         {% endif %}
     {% endfor %}
     const section = document.querySelector('section')
