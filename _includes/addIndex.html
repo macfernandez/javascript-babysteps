@@ -59,6 +59,7 @@
     //add element to list
     function addToRepoList(list, element){
         const elementLi = document.createElement('li')
+        elementLi.className = 'tag-h2'
             
         const textA = document.createElement('a')
         textA.href = "{{ site.baseurl }}"+element
