@@ -2,18 +2,20 @@
 
 
 <script>
+    const createLi(list, element){
+        let elementLi = document.createElement('li')
+            
+        let textA = document.createElement('a')
+        textA.href = "{{ site.baseurl }}{{ doc.url }}"
+        textA.textContent = "{{ doc.url }}"
+        elementLi.appendChild(textA)
+            
+        listUl.appendChild(elementLi)
+    }
     const listUl = document.createElement('ul')
     {% for doc in doclist %}
         {% if doc.name contains '.md' or doc.name contains '.html' %}
-            let elementLi = document.createElement('li')
-            
-            let textA = document.createElement('a')
-            textA.href = "{{ site.baseurl }}{{ doc.url }}"
-            textA.textContent = "{{ doc.url }}"
-            elementLi.appendChild(textA)
-            
-            listUl.appendChild(elementLi)
-
+            createLi(listUl, doc)
         {% endif %}
     {% endfor %}
     const section = document.querySelector('section')
