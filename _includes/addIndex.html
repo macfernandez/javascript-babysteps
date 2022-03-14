@@ -47,8 +47,13 @@
         }
     }
 
-    headlines = document.querySelectorAll('h1,h2')
-    headlines.forEach(element => addToThisPageList(element));
+    const sectionChildren = sectionPage.children
+
+    for (var i = 0; i < sectionChildren.length; i++){
+        if (['h1','h2'].includes(sectionChildren[i].tagName.toLowerCase())){
+            addToThisPageList(addToThisPageList[i])
+        }
+    }
 
     //create list for "this-repo"
     var ulThisRepo = document.createElement('ul')
