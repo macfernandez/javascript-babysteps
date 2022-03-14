@@ -20,19 +20,19 @@
     // add headlines to "this-page" ul
     function addToNav(head){
         // set id for healine
-        const headText = head.textContent               //ex: "First Title"
-        const headId = headText.replace(' ','-')        //ex: "First-Title"
-        const headTag = head.tagName.toLowerCase()      //ex: "H1">"h1"
-        head.id = headId                                // id="First-Title" (for ref)
+        const headText = head.textContent;              //ex: "First Title"
+        const headId = headText.replace(' ','-');       //ex: "First-Title"
+        const headTag = head.tagName.toLowerCase();     //ex: "H1">"h1"
+        head.id = headId;                               // id="First-Title" (for ref)
 
-        const aHeadlineHref = document.createElement('a')
-        aHeadlineHref.textContent = headText
-        aHeadlineHref.href = "#"+headId
-        aHeadlineHref.onclick = "location.href='{{% aHeadlineHref.href %}}'"
+        const aHeadlineHref = document.createElement('a');
+        aHeadlineHref.textContent = headText;
+        aHeadlineHref.href = "#"+headId;
+        aHeadlineHref.onclick = "location.href='{{% aHeadlineHref.href %}}'";
 
-        const liItem = document.createElement('li')
-        liItem.className = "tag-"+headTag
-        liItem.appendChild(aHeadlineHref)
+        const liItem = document.createElement('li');
+        liItem.className = "tag-"+headTag;
+        liItem.appendChild(aHeadlineHref);
 
         if (tag=="h1"){
             aHeadlineHref.appendChild(liItem)
