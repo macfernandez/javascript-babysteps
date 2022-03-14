@@ -24,7 +24,7 @@ li[class="tag-h1"] {
 li[class="tag-h2"] {
     font-size: 14px;
 }
-nav {
+nav.content {
     width: 230px;
     position: fixed;
     top: 220px;

@@ -6,6 +6,7 @@
     
     // create nav section
     var navThisPage = document.createElement('nav')
+    navThisPage.className = "content"
     sectionPage.insertAdjacentElement('beforebegin', navThisPage)
     
     // create list for "this-page"
@@ -19,8 +20,10 @@
 
     // add headlines to "this-page" ul
     function addToNav(head){
+        console.log(head)
         // set id for healine
         const headText = head.textContent;              //ex: "First Title"
+        console.log(headText)
         const headId = headText.replace(' ','-');       //ex: "First-Title"
         const headTag = head.tagName.toLowerCase();     //ex: "H1">"h1"
         head.id = headId;                               // id="First-Title" (for ref)
