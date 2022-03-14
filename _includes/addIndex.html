@@ -15,15 +15,10 @@
     ulThisPage.className = "this-page"
     navThisPage.appendChild(ulThisPage)
 
-    // select every h1 and h2 element
-    const headlines = document.querySelectorAll('h1,h2')
-
     // add headlines to "this-page" ul
     function addToNav(head){
-        console.log(head)
         // set id for healine
         const headText = head.textContent;              //ex: "First Title"
-        console.log(headText)
         const headId = headText.replace(' ','-');       //ex: "First-Title"
         const headTag = head.tagName.toLowerCase();     //ex: "H1">"h1"
         head.id = headId;                               // id="First-Title" (for ref)
@@ -52,9 +47,8 @@
         }
     }
 
-    for (head in headlines){
-        addToNav(head)
-    }
+    headlines = document.querySelectorAll('h1,h2')
+    headline.forEach(element => addToNav(element    ));
 </script>
 
 
