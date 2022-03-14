@@ -33,16 +33,16 @@
         liItem.appendChild(aHeadlineHref);
 
         if (headTag=="h1"){
-            aHeadlineHref.appendChild(liItem)
+            ulThisPage.appendChild(liItem)
         }
         else if (headTag=="h2"){
-            if (aHeadlineHref.lastChild.lastChild.headTagName.toLowerCase() == 'ul'){
-                aHeadlineHref.lastChild.lastChild.appendChild(navItem)
+            if (ulThisPage.lastChild.lastChild.headTagName.toLowerCase() == 'ul'){
+                ulThisPage.lastChild.lastChild.appendChild(liItem)
             }
             else {
-                const navSubHeadList = document.createElement('ul')
-                navSubHeadList.appendChild(navItem)
-                aHeadlineHref.lastChild.appendChild(navSubHeadList)
+                const ulSubHeadList = document.createElement('ul')
+                ulSubHeadList.appendChild(liItem)
+                ulThisPage.lastChild.appendChild(ulSubHeadList)
             }
         }
     }
