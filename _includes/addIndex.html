@@ -36,9 +36,8 @@
             ulThisPage.appendChild(liItem)
         }
         else if (headTag=="h2"){
-            if (typeof ulThisPage.lastChild.lastChild !== "undefined"
-            && ulThisPage.lastChild.lastChild.headTagName.toLowerCase() == 'ul'){
-                ulThisPage.lastChild.lastChild.appendChild(liItem)
+            if (ulThisPage.lastChild.lastChild.tagName.includes('UL')){
+                ulThisPage.lastChild.querySelector('ul').appendChild(liItem)
             }
             else {
                 const ulSubHeadList = document.createElement('ul')
