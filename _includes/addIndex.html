@@ -1,8 +1,21 @@
 {% assign doclist = site.pages | sort: 'url'  %}
-<ul>
+
+
+<script>
+    const listUl = document.createElement('ul')
     {% for doc in doclist %}
         {% if doc.name contains '.md' or doc.name contains '.html' %}
-            <li><a href="{{ site.baseurl }}{{ doc.url }}">{{ doc.url }}</a></li>
+            const elementLi = document.createElement('li')
+            
+            const textA = document.createElement('a')
+            textA.href = "{{ site.baseurl }}{{ doc.url }}"
+            textA.textContent = "{{ doc.url }}"
+            elementLi.appendChild(textA)
+            
+            listUl.appendChild(elementLi)
+
         {% endif %}
     {% endfor %}
-</ul>
+    const section = document.querySelector('section')
+    section.appendChild(listUl)
+</script>
