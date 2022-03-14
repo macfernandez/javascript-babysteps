@@ -1,10 +1,13 @@
-{% assign doclist = site.pages | sort: 'url'  %}
 <script>
-    console.log('entré')
-    {% for doc in doclist %}
-        {% if doc.name contains '.md' or doc.name contains '.html' %}
-            console.log("{{ site.pages }}")
-            console.log("{{ doc.url }} || {{ doc.name }}")
-        {% endif %}
-    {% endfor %}
+    {% assign doclist = site.pages | sort: 'url'  %}
+    <ul>
+       {% for doc in doclist %}
+            if ( {{ doc.name }} ){
+                console.log("{{ doc.name }}")
+            }
+        {% endfor %}
+    </ul>
+    //{% if doc.name contains '.md' or doc.name contains '.html' %}
+    //<li><a href="{{ site.baseurl }}{{ doc.url }}">{{ doc.url }}</a></li>
+    //{% endif %}
 </script>
