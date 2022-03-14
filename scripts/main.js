@@ -6,25 +6,25 @@ navHeadlines.textContent = "En esta página"
 navHeadlines.className = "this-page"
 nav.appendChild(navHeadlines)
 
-const headlines = document.querySelectorAll('h1,h2')
-
 function addToNav(head){
     // set id for healine
-    const headText = head.textContent
-    const id = headText.replace(' ','-')
-    const tag = head.tagName.toLowerCase()
+    const headText = head.textContent;
+    const id = headText.replace(' ','-');
+    const tag = head.tagName.toLowerCase();
     head.id = id
-
+    console.log(head)
     const navHeadlineHref = document.createElement('a')
     navHeadlineHref.textContent = headText
     navHeadlineHref.href = "#"+id
     navHeadlineHref.onclick = "location.href='{{% navHeadline.href %}}'"
+    console.log(navHeadlineHref)
 
     const navItem = document.createElement('li')
     navItem.className = "tag-"+tag
     navItem.appendChild(navHeadlineHref)
-
+    console.log(navItem)
     if (tag=="h1"){
+        console.log(navItem)
         navHeadlines.appendChild(navItem)
     }
     else if (tag=="h2"){
@@ -38,6 +38,8 @@ function addToNav(head){
         }
     }
 }
+const headlines = document.querySelectorAll('h1,h2')
+headlines.forEach(head=>addToNav(head))
 
 
 
