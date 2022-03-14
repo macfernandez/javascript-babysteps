@@ -3,7 +3,7 @@
     <ul>
        {% for doc in doclist %}
             if ( {{ doc.name }} ){
-                console.log("{{ doc.name }}")
+                console.log("{{ doc.name }} || {{ doc.url }}")
             }
         {% endfor %}
     </ul>
