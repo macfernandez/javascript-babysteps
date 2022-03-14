@@ -32,11 +32,11 @@
         liItem.className = "tag-"+headTag;
         liItem.appendChild(aHeadlineHref);
 
-        if (tag=="h1"){
+        if (headTag=="h1"){
             aHeadlineHref.appendChild(liItem)
         }
-        else if (tag=="h2"){
-            if (aHeadlineHref.lastChild.lastChild.tagName.toLowerCase() == 'ul'){
+        else if (headTag=="h2"){
+            if (aHeadlineHref.lastChild.lastChild.headTagName.toLowerCase() == 'ul'){
                 aHeadlineHref.lastChild.lastChild.appendChild(navItem)
             }
             else {
