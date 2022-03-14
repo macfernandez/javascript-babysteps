@@ -51,7 +51,7 @@
 
     for (var i = 0; i < sectionChildren.length; i++){
         if (['h1','h2'].includes(sectionChildren[i].tagName.toLowerCase())){
-            addToThisPageList(addToThisPageList[i])
+            addToThisPageList(sectionChildren[i])
         }
     }
 
