@@ -5,9 +5,9 @@
     const listUl = document.createElement('ul')
     {% for doc in doclist %}
         {% if doc.name contains '.md' or doc.name contains '.html' %}
-            const elementLi = document.createElement('li')
+            let elementLi = document.createElement('li')
             
-            const textA = document.createElement('a')
+            let textA = document.createElement('a')
             textA.href = "{{ site.baseurl }}{{ doc.url }}"
             textA.textContent = "{{ doc.url }}"
             elementLi.appendChild(textA)
