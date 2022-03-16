@@ -68,7 +68,15 @@
             
         const textA = document.createElement('a')
         textA.href = "{{ site.baseurl }}"+element
-        textA.textContent = element
+        if (element.startsWith('/Clase')){
+            textA.textContent = element.replace(/\//g,'').replace('-',' ')
+        }
+        else if (element.startsWith('/instructivos')){
+            textA.textContent = 'Instructivos'
+        }
+        else if (element === '/'){
+            textA.textContent = 'Inicio'
+        }
         elementLi.appendChild(textA)
             
         list.appendChild(elementLi)
@@ -78,7 +86,7 @@
     {% assign doclist = site.pages | sort: 'url'  %}
     {% for doc in doclist %}
         {% if doc.name contains '.md' or doc.name contains '.html' %}
-            if ("{{ doc.url }}".startsWith('/Clase') || "{{ doc.url }}".startsWith('/instructivos')){
+            if ("{{ doc.name }}".startsWith('README') || "{{ doc.name }}".startsWith('index')){
                 addToRepoList(ulThisRepo, "{{ doc.url }}")
             }
         {% endif %}

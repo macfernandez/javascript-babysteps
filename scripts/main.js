@@ -12,19 +12,18 @@ function addToNav(head){
     const id = headText.replace(' ','-');
     const tag = head.tagName.toLowerCase();
     head.id = id
-    console.log(head)
+    
     const navHeadlineHref = document.createElement('a')
     navHeadlineHref.textContent = headText
     navHeadlineHref.href = "#"+id
     navHeadlineHref.onclick = "location.href='{{% navHeadline.href %}}'"
-    console.log(navHeadlineHref)
+    
 
     const navItem = document.createElement('li')
     navItem.className = "tag-"+tag
     navItem.appendChild(navHeadlineHref)
-    console.log(navItem)
+    
     if (tag=="h1"){
-        console.log(navItem)
         navHeadlines.appendChild(navItem)
     }
     else if (tag=="h2"){
@@ -36,6 +35,16 @@ function addToNav(head){
             navSubHeadList.appendChild(navItem)
             navHeadlines.lastChild.appendChild(navSubHeadList)
         }
+    }
+}
+
+const chicho = document.querySelector('section').children
+console.log(chicho.length)
+
+for (var i = 0; i < chicho.length; i++){
+
+    if (['h1','h2'].includes(chicho[i].tagName.toLowerCase())){
+        console.log(chicho[i])
     }
 }
 const headlines = document.querySelectorAll('h1,h2')
