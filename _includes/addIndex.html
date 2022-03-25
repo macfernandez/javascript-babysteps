@@ -91,4 +91,11 @@
             }
         {% endif %}
     {% endfor %}
+
+    // change title
+    function newTitle(pageUrl){
+        pos = pageUrl.split('/')[0]
+        return pos.replace('-',' ')
+    }
+    document.title = newTitle("{{ doc.url }}")
 </script>
