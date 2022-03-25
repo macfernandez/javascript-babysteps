@@ -17,7 +17,7 @@ Solutions to javascript exercises from Enki's tutorial.
 
 | esto | es | una | tabla |
 |------|----|-----|-------|
-| <ul><li>esto</li><li>es</li><li>una</li><li>lista</li></ul> | col 2 | col 3 | col 4 |
+| {::nomarkdown}<ul><li>esto</li><li>es</li><li>una</li><li>lista</li></ul>{:/} | col 2 | col 3 | col 4 |
 
 Fuente: [Lorem Ipsum](https://www.lipsum.com/)
 
